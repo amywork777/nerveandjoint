@@ -2,6 +2,21 @@ import React from 'react';
 import { Heart, Brain, RotateCcw, User } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 
+// Add interfaces for component props
+interface ServiceCardProps {
+  icon: React.ReactNode;
+  title: string;
+}
+
+interface ExperienceItemProps {
+  title: string;
+  content: string;
+}
+
+interface TestimonialType {
+  text: string;
+}
+
 const LandingPage = () => {
   return (
     <div className="min-h-screen bg-white">
@@ -158,7 +173,7 @@ const LandingPage = () => {
   );
 };
 
-const ServiceCard = ({ icon, title }) => (
+const ServiceCard = ({ icon, title }: ServiceCardProps) => (
   <Card className="p-6 text-center hover:shadow-lg transition-shadow">
     <CardContent>
       <div className="flex justify-center mb-4">{icon}</div>
@@ -167,14 +182,14 @@ const ServiceCard = ({ icon, title }) => (
   </Card>
 );
 
-const ExperienceItem = ({ title, content }) => (
+const ExperienceItem = ({ title, content }: ExperienceItemProps) => (
   <li className="flex flex-col space-y-1">
     <span className="font-medium text-gray-900">{title}</span>
     <span className="text-gray-600">{content}</span>
   </li>
 );
 
-const testimonials = [
+const testimonials: TestimonialType[] = [
   {
     text: "Dr. Jianxun Zhou, is awesome, very professional, respectful, very honest, he listens your needs. He took my workes comp case, he did a great job on my case, I highly recommend him. May God bless him."
   },
